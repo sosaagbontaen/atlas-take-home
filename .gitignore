@@ -1,3 +1,5 @@
 # Spec documents (not committed)
 *.pdf
 .DS_Store
+transactions.csv
+confirmed_fraud.csv
