@@ -30,3 +30,4 @@ Both scripts take file paths as optional arguments: `python3 monitor.py <transac
 | `output/flagged_transactions.csv` | The flagged-output deliverable. |
 | `RULES.md` | Rules doc: proposed rules, what was built, flag rate and budget tuning, data cleaning, what was cut. |
 | `CONFIRMED_FRAUD_NOTE.md` | How `confirmed_fraud.csv` was used and what it does and doesn't tell us. |
+| `LLM_USAGE.md` | How I used Claude, including where it was wrong and how that was caught. |

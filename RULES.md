@@ -10,6 +10,7 @@
 ### R2: Large charge on a new device (implemented)
 - **Pattern:** Account takeover: someone logs in from a device the user has never used and spends big.
 - **Why it matters:** Takeover losses are large, and the fintech usually absorbs them.
+- **Cutoffs:** "Large" means $300 or more. That's above 99% of all charges in the data (the 99th percentile is ~$252), while confirmed takeover charges ran $330–$1,750. "New" means the user first used the device less than 24 hours earlier, after 10+ transactions on other devices, so a user's first-ever device doesn't count.
 - **False positives:** A real customer buying something big on a new phone they just set up.
 
 ### R3: High-value spree (implemented)
