@@ -15,7 +15,7 @@
 
 ### R3: High-value spree (implemented)
 - **Pattern:** Several large purchases within hours, i.e. cashing out a taken-over account.
-- **Why it matters:** The most dollars at risk per incident ($3,000–$6,000 per session here).
+- **Why it matters:** The most dollars at risk per incident. The 85 sprees here total $1,000–$8,000 each, median ~$3,000.
 - **False positives:** Genuine big shopping days (holidays, moving house).
 
 ### R4: Shared-device fraud ring (implemented)
@@ -71,7 +71,15 @@ REVIEW BUDGET
 
 **Flag rate: 869 flags / 999,955 transactions = 0.087%**, under the ~0.1% budget.
 
-If a run goes over budget, flags are kept in priority order: account takeover (R2/R3), then rings (R4), then card testing (R1). Card testing ranks last because each charge is ~$3, while a takeover session runs $3,000–$6,000. The summary then shows how many of each rule's flags were kept after the budget.
+If a run goes over budget, flags are kept in priority order: account takeover (R2/R3), then rings (R4), then card testing (R1). Card testing ranks last because each charge is ~$3, while a takeover spree runs ~$3,000 (median). The summary then shows how many of each rule's flags were kept after the budget.
+
+## Fraud knowingly let through
+
+- **Short card-testing runs (3–4 charges).** Lowering R1 to 3 added ~620 bursts that were almost all normal small purchases. Every confirmed testing burst here was 12+ charges, and each test charge costs ~$3.
+- **Takeovers that stay small or use a known device.** R2 needs $300+ on a new device; R3 needs 2+ charges of $500+. A thief making a few $100 purchases, or using the victim's own phone, isn't caught.
+- **Small rings or rings buying ordinary goods.** R4 needs 5+ customers on one device *and* a gift card/prepaid/resale merchant, because shared family devices with normal purchases look the same otherwise.
+
+**Why this is the right tradeoff:** the budget is ~1,000 reviews. Analyst time goes to the highest dollar losses first (takeover sprees, median ~$3,000, and rings), not to low-value patterns that would bury analysts in false alarms.
 
 ## Data cleaning
 
